@@ -1,16 +1,11 @@
-ARCHS = armv7 arm64
-TARGET = iphone:clang:latest:latest
-#CFLAGS = -fobjc-arc
-#THEOS_PACKAGE_DIR_NAME = debs
+ARCHS = arm64
+TARGET = iphone:clang:16.5:14.0
 
-include @@THEOS@@/makefiles/common.mk
+include $(THEOS)/makefiles/common.mk
 
-TWEAK_NAME = @@PROJECTNAME@@
-@@PROJECTNAME@@_FILES = Tweak.xm
-@@PROJECTNAME@@_FRAMEWORKS = UIKit
-@@PROJECTNAME@@_LDFLAGS += -Wl,-segalign,4000
+TWEAK_NAME = FBFix
+FBFix_FILES = Tweak.xm
+FBFix_FILTER_BUNDLES = com.facebook.Facebook
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 
-@@KILL_RULE@@
-include $(THEOS_MAKE_PATH)/aggregate.mk
