@@ -3,9 +3,8 @@ TARGET = iphone:clang:16.5:14.0
 
 include $(THEOS)/makefiles/common.mk
 
-TWEAK_NAME = FBFix
-FBFix_FILES = Tweak.xm
-FBFix_FILTER_BUNDLES = com.facebook.Facebook
+LIBRARY_NAME = FBFix
+FBFix_FILES = FBFix.m
+FBFix_FRAMEWORKS = Foundation UIKit Security
 
-include $(THEOS_MAKE_PATH)/tweak.mk
-
+include $(THEOS_MAKE_PATH)/library.mk
